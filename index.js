@@ -5,8 +5,15 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
-
+import cors from 'cors';
 import playerRoutes from './routes/Player.js';
+
+const corsOptions = {
+    origin:process.env.ALLOWED_CLIENTS.split(',')
+}
+
+app.use(cors(corsOptions));
+
 
 const app = express(); 
 dotenv.config();
