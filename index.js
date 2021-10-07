@@ -6,15 +6,15 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import playerRoutes from './routes/Player.js';
-
+const app = express(); 
 const corsOptions = {
-    origin:process.env.ALLOWED_CLIENTS.split(',')
+    origin:process.env.ALLOWED_CLIENTS,
 }
 
 app.use(cors(corsOptions));
 
 
-const app = express(); 
+
 dotenv.config();
 app.use(cors());
 const PORT = process.env.PORT || 5000 ;
